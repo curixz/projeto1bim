@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Correção: tipagem explícita
         val edtPeso = findViewById<EditText>(R.id.edtPeso)
         val edtAltura = findViewById<EditText>(R.id.edtAltura)
         val btnCalcular = findViewById<Button>(R.id.btnCalcular)

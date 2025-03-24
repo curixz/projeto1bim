@@ -24,10 +24,26 @@ class MainActivity : AppCompatActivity() {
 
             if (peso != null && altura != null && altura > 0) {
                 val imc = peso / (altura * altura)
-                txtResultado.text = "IMC: %.2f\n$imc".format(imc)
+
+                val classificacao = if (imc < 18.5) {
+                    "Abaixo do peso"
+                } else if (imc in 18.5..24.9) {
+                    "Peso normal"
+                } else if (imc in 25.0..29.9) {
+                    "Sobrepeso"
+                } else if (imc in 30.0..34.9) {
+                    "Obesidade grau 1"
+                } else if (imc in 35.0..39.9) {
+                    "Obesidade grau 2"
+                } else {
+                    "Obesidade grau 3 (obesidade mórbida)"
+                }
+
+                txtResultado.text = "IMC: %.2f\n%s".format(imc, classificacao)
+
             } else {
                 txtResultado.text = "Por favor, insira valores válidos!"
             }
-        }
-    }
+        }
+    }
 }
